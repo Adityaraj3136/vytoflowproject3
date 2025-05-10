@@ -92,3 +92,17 @@ function updateSessionInfo() {
 // Init
 resetTimer();
 updateSessionInfo();
+
+const darkToggle = document.getElementById("darkModeToggle");
+
+darkToggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark", darkToggle.checked);
+  localStorage.setItem("darkMode", darkToggle.checked);
+});
+
+// Load dark mode if previously enabled
+if (localStorage.getItem("darkMode") === "true") {
+  darkToggle.checked = true;
+  document.body.classList.add("dark");
+}
+
