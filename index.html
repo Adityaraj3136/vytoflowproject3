@@ -7,10 +7,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="quotePopup" class="quote-popup hidden">
-  <p id="quoteText"></p>
-  <button onclick="closeQuote()">Close</button>
-</div>
   <div class="container">
     <h1>🎯 Focus Timer</h1>
     <label class="toggle">
@@ -28,6 +24,8 @@
     </div>
 
     <div class="timer" id="timerDisplay">25:00</div>
+
+
     <p id="sessionInfo">Completed Focus Sessions: 0</p>
 
     <div class="buttons">
@@ -36,7 +34,10 @@
       <button onclick="resetTimer()">Reset</button>
       <button onclick="resetAll()">Reset All</button>
     </div>
-
+    <div id="quotePopup" class="quote-popup hidden">
+  <p id="quoteText"></p>
+  <button onclick="closeQuote()">Close</button>
+</div>
     <audio id="alertSound" src="alert.mp3" preload="auto"></audio>
   </div>
 
