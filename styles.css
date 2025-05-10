@@ -89,3 +89,37 @@ body.dark .buttons button {
   margin: 0 8px;
 }
 
+.quote-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  text-align: center;
+  width: 80%;
+  max-width: 300px;
+  display: none;
+}
+
+body.dark .quote-popup {
+  background: #2a2a2a;
+  color: #f4f4f4;
+}
+
+.quote-popup button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
