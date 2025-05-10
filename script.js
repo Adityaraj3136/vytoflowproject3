@@ -1,3 +1,4 @@
+const alertSound = document.getElementById('alertSound');
 const timerEl = document.getElementById('timer');
 const startBtn = document.getElementById('start');
 const pauseBtn = document.getElementById('pause');
@@ -53,6 +54,7 @@ function resetTimer() {
 }
 
 function completeSession() {
+  alertSound.play();
   const mode = isFocus ? 'Focus' : 'Break';
   const timestamp = new Date().toLocaleTimeString();
   saveToHistory(`${mode} session completed at ${timestamp}`);
