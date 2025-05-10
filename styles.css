@@ -81,7 +81,7 @@ body.dark .buttons button {
 .toggle {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 18px;
 }
 
