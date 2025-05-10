@@ -62,3 +62,30 @@ h1 {
 .buttons button:hover {
   background-color: #27ae60;
 }
+
+body.dark {
+  background-color: #121212;
+  color: #f4f4f4;
+}
+
+body.dark .container {
+  background-color: #1e1e1e;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .buttons button {
+  background-color: #3c3c3c;
+  color: #eee;
+}
+
+.toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.toggle input {
+  margin: 0 8px;
+}
+
