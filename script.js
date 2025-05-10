@@ -1,34 +1,28 @@
-const alertSound = document.getElementById('alertSound');
-const timerEl = document.getElementById('timer');
-const startBtn = document.getElementById('start');
-const pauseBtn = document.getElementById('pause');
-const resetBtn = document.getElementById('reset');
-const statusEl = document.getElementById('status');
-const quoteBox = document.getElementById('quoteBox');
-const historyList = document.getElementById('historyList');
+let focusTime = 25 * 60;
+let breakTime = 5 * 60;
+const LONG_BREAK_TIME = 15 * 60;
 
-const focusTime = 25 * 60; // 25 minutes
-const breakTime = 5 * 60;  // 5 minutes
 let currentTime = focusTime;
 let isFocus = true;
 let timer = null;
 
-const quotes = [
-  "Stay focused. One task at a time.",
-  "Small steps lead to big results.",
-  "Discipline is doing it even when you don't feel like it.",
-  "You’re closer than you think.",
-  "Focus is the key to success."
-];
+let sessionCount = Number(localStorage.getItem("sessionCount")) || 0;
 
-function updateDisplay() {
-  const minutes = Math.floor(currentTime / 60).toString().padStart(2, '0');
-  const seconds = (currentTime % 60).toString().padStart(2, '0');
-  timerEl.textContent = `${minutes}:${seconds}`;
-}
+const focusInput = document.getElementById("focusInput");
+const breakInput = document.getElementById("breakInput");
+const alertSound = document.getElementById("alertSound");
 
 function startTimer() {
   if (timer) return;
+
+  focusTime = parseInt(focusInput.value) * 60;
+  breakTime = parseInt(breakInput.value) * 60;
+
+  if (currentTime <= 0) {
+    currentTime = isFocus ? focusTime : breakTime;
+  }
+
+  updateDisplay();
 
   timer = setInterval(() => {
     if (currentTime > 0) {
@@ -49,46 +43,52 @@ function pauseTimer() {
 
 function resetTimer() {
   pauseTimer();
+  focusTime = parseInt(focusInput.value) * 60;
+  breakTime = parseInt(breakInput.value) * 60;
   currentTime = isFocus ? focusTime : breakTime;
   updateDisplay();
+  updateSessionInfo();
+}
+
+function resetAll() {
+  sessionCount = 0;
+  localStorage.setItem("sessionCount", 0);
+  resetTimer();
+  updateSessionInfo();
 }
 
 function completeSession() {
   alertSound.play();
-  const mode = isFocus ? 'Focus' : 'Break';
-  const timestamp = new Date().toLocaleTimeString();
-  saveToHistory(`${mode} session completed at ${timestamp}`);
 
-  quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+  if (isFocus) {
+    sessionCount++;
+    localStorage.setItem("sessionCount", sessionCount);
+  }
 
   isFocus = !isFocus;
-  statusEl.textContent = `Session: ${isFocus ? 'Focus' : 'Break'}`;
-  currentTime = isFocus ? focusTime : breakTime;
+
+  if (!isFocus) {
+    currentTime = (sessionCount % 4 === 0) ? LONG_BREAK_TIME : breakTime;
+  } else {
+    currentTime = focusTime;
+  }
+
   updateDisplay();
+  updateSessionInfo();
+  startTimer(); // auto start next
 }
 
-function saveToHistory(entry) {
-  let history = JSON.parse(localStorage.getItem('pomodoroHistory')) || [];
-  history.unshift(entry);
-  if (history.length > 10) history.pop(); // Keep only last 10 sessions
-  localStorage.setItem('pomodoroHistory', JSON.stringify(history));
-  renderHistory();
+function updateDisplay() {
+  const minutes = Math.floor(currentTime / 60).toString().padStart(2, '0');
+  const seconds = (currentTime % 60).toString().padStart(2, '0');
+  document.getElementById("timerDisplay").textContent = `${minutes}:${seconds}`;
 }
 
-function renderHistory() {
-  let history = JSON.parse(localStorage.getItem('pomodoroHistory')) || [];
-  historyList.innerHTML = '';
-  history.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    historyList.appendChild(li);
-  });
+function updateSessionInfo() {
+  document.getElementById("sessionInfo").textContent =
+    `Completed Focus Sessions: ${sessionCount}`;
 }
 
-// Initialize
-updateDisplay();
-renderHistory();
-
-startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
-resetBtn.addEventListener('click', resetTimer);
+// Init
+resetTimer();
+updateSessionInfo();
