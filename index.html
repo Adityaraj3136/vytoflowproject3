@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Focus Timer (Pomodoro)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>🧠 Focus Timer</h1>
 
+    <div class="timer-box">
+      <div id="timer">25:00</div>
+      <div class="controls">
+        <button id="start">▶️ Start</button>
+        <button id="pause">⏸️ Pause</button>
+        <button id="reset">🔁 Reset</button>
+      </div>
+      <p id="status">Session: Focus</p>
+    </div>
+
+    <div class="quote-box" id="quoteBox">💬 Ready to focus? Let's begin.</div>
+
+    <section class="history">
+      <h2>📊 Session History</h2>
+      <ul id="historyList"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
