@@ -3,31 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Focus Timer (Pomodoro)</title>
+  <title>Focus Timer</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <audio id="alertSound" src="alert.mp3" preload="auto"></audio>
-  <main class="container">
-    <h1>🧠 Focus Timer</h1>
+  <div class="container">
+    <h1>🎯 Focus Timer</h1>
 
-    <div class="timer-box">
-      <div id="timer">25:00</div>
-      <div class="controls">
-        <button id="start">▶️ Start</button>
-        <button id="pause">⏸️ Pause</button>
-        <button id="reset">🔁 Reset</button>
-      </div>
-      <p id="status">Session: Focus</p>
+    <div class="time-settings">
+      <label>
+        Focus Time:
+        <input type="number" id="focusInput" value="25" min="1" max="60"> min
+      </label>
+      <label>
+        Break Time:
+        <input type="number" id="breakInput" value="5" min="1" max="30"> min
+      </label>
     </div>
 
-    <div class="quote-box" id="quoteBox">💬 Ready to focus? Let's begin.</div>
+    <div class="timer" id="timerDisplay">25:00</div>
+    <p id="sessionInfo">Completed Focus Sessions: 0</p>
 
-    <section class="history">
-      <h2>📊 Session History</h2>
-      <ul id="historyList"></ul>
-    </section>
-  </main>
+    <div class="buttons">
+      <button onclick="startTimer()">Start</button>
+      <button onclick="pauseTimer()">Pause</button>
+      <button onclick="resetTimer()">Reset</button>
+      <button onclick="resetAll()">Reset All</button>
+    </div>
+
+    <audio id="alertSound" src="alert.mp3" preload="auto"></audio>
+  </div>
 
   <script src="script.js"></script>
 </body>
