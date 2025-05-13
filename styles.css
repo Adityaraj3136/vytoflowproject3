@@ -1,125 +1,91 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-}
-
-h1 {
-  margin-bottom: 10px;
-  font-size: 28px;
-}
-
-.time-settings {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 15px 0;
-  font-size: 14px;
-}
-
-.time-settings input {
-  width: 50px;
-  padding: 4px;
-  margin-left: 5px;
-}
-
-.timer {
-  font-size: 48px;
-  margin: 20px 0;
-  color: #2c3e50;
-}
-
-#sessionInfo {
-  font-size: 16px;
-  color: #555;
-}
-
-.buttons button {
-  margin: 5px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #2ecc71;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.buttons button:hover {
-  background-color: #27ae60;
-}
-
-body.dark {
-  background-color: #121212;
-  color: #f4f4f4;
-}
-
-body.dark .container {
-  background-color: #1e1e1e;
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
-}
-
-body.dark .buttons button {
-  background-color: #3c3c3c;
-  color: #eee;
-}
-
-.toggle {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.toggle input {
-  margin: 0 8px;
-}
-
-.quote-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  text-align: center;
-  width: 80%;
-  max-width: 300px;
-  display: none;
-}
-
-body.dark .quote-popup {
-  background: #2a2a2a;
-  color: #f4f4f4;
-}
-
-.quote-popup button {
-  margin-top: 15px;
-  padding: 8px 16px;
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.hidden {
-  display: none;
-}
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+  
+  .time-settings {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+    font-size: 14px;
+  }
+  
+  .time-settings input {
+    width: 50px;
+    padding: 4px;
+    margin-left: 5px;
+  }
+  
+  .timer {
+    font-size: 48px;
+    margin: 20px 0;
+    color: #2c3e50;
+  }
+  
+  #sessionInfo {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .buttons button:hover {
+    background-color: #27ae60;
+  }
+  
+  body.dark {
+    background-color: #121212;
+    color: #f4f4f4;
+  }
+  
+  body.dark .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+  }
+  
+  body.dark .buttons button {
+    background-color: #3c3c3c;
+    color: #eee;
+  }
+  
+  .toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .toggle input {
+    margin: 0 8px;
+  }
+  
