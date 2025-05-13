@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Focus Timer with Quotes</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Focus Timer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <label class="toggle">
-      🌞 <input type="checkbox" id="darkModeToggle"> 🌙
-    </label>
+        🌞 <input type="checkbox" id="darkModeToggle"> 🌙
+      </label>
+      
+    <h1>🎯 Focus Timer</h1>
 
-    <h1>Focus Timer</h1>
-
-    <div class="timer">
-      <span id="time">25:00</span>
+    <div class="time-settings">
+      <label>
+        Focus Time:
+        <input type="number" id="focusInput" value="25" min="1" max="60"> min
+      </label>
+      <label>
+        Break Time:
+        <input type="number" id="breakInput" value="5" min="1" max="30"> min
+      </label>
     </div>
+
+    <div class="timer" id="timerDisplay">25:00</div>
+    <p id="sessionInfo">Completed Focus Sessions: 0</p>
 
     <div class="buttons">
-      <button id="startBtn">Start</button>
-      <button id="pauseBtn" disabled>Pause</button>
-      <button id="resetBtn">Reset</button>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="pauseTimer()">Pause</button>
+      <button onclick="resetTimer()">Reset</button>
+      <button onclick="resetAll()">Reset All</button>
     </div>
 
-    <div id="quotePopup" class="quote-popup hidden">
-      <p id="quoteText"></p>
-      <button onclick="closeQuote()">Close</button>
-    </div>
-
-    <div class="chart-container">
-      <canvas id="sessionChart"></canvas>
-    </div>
+    <audio id="alertSound" src="alert.mp3" preload="auto"></audio>
   </div>
 
   <script src="script.js"></script>
