@@ -59,7 +59,7 @@ function resetAll() {
 
 function completeSession() {
   alertSound.play();
-showQuote();  // Show motivational quote popup
+
   if (isFocus) {
     sessionCount++;
     localStorage.setItem("sessionCount", sessionCount);
@@ -87,35 +87,6 @@ function updateDisplay() {
 function updateSessionInfo() {
   document.getElementById("sessionInfo").textContent =
     `Completed Focus Sessions: ${sessionCount}`;
-}
-const quotes = [
-  "Stay focused and never give up.",
-  "Your only limit is your mind.",
-  "Small steps every day lead to big results.",
-  "Discipline is the bridge between goals and success.",
-  "Push yourself because no one else is going to do it for you.",
-  "Productivity is never an accident. It’s always the result of commitment.",
-  "Consistency is more important than intensity.",
-  "Make each day your masterpiece."
-];
-
-let quoteTimeout; // for clearing auto-close
-
-function showQuote() {
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-  const popup = document.getElementById("quotePopup");
-  document.getElementById("quoteText").textContent = `"${randomQuote}"`;
-  popup.classList.remove("hidden");
-
-  // Auto close after 5 seconds
-  clearTimeout(quoteTimeout);
-  quoteTimeout = setTimeout(() => {
-    closeQuote();
-  }, 5000);
-}
-
-function closeQuote() {
-  document.getElementById("quotePopup").classList.add("hidden");
 }
 
 // Init
