@@ -30,7 +30,8 @@ In today’s distraction-heavy environment, productivity often takes a hit. This
 
 ## 📷 Screenshots
 
-> **
+> *![image](https://github.com/user-attachments/assets/d116427f-21c7-4823-a42b-879f8566dfb0)
+*
 
 ---
 
